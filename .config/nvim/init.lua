@@ -34,13 +34,19 @@ require("lazy").setup(
             {
                 "neovim/nvim-lspconfig",
                 config = function()
-                    require("lspconfig").pyright.setup {}
+                    require('lspconfig').pylsp.setup{}
                 end
             },
             {
                 "williamboman/mason.nvim",
                 config = function()
                     require("mason").setup()
+                end
+            },
+            {
+                "williamboman/mason-lspconfig.nvim",
+                config = function()
+                    require("mason-lspconfig").setup()
                 end
             },
             {
@@ -87,9 +93,9 @@ require("lazy").setup(
             },
             {
                 "folke/tokyonight.nvim",
-                lazy = false,
+                lazy = true,
                 priority = 1000,
-                opts = {}
+                opts = { style = "moon" }
             }
         },
         -- Configure any other settings here. See the documentation for more details.
@@ -99,3 +105,4 @@ require("lazy").setup(
         checker = {enabled = true}
     }
 )
+vim.cmd('colorscheme tokyonight')
